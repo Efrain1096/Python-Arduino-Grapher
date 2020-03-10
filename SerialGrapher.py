@@ -11,9 +11,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import serial  # importing the serialpy library to communicate through serial
 
-# Last updated: 3/22/19 10:57
-
-
 data_values = []  # list to save the data values for plotting
 time_stamps = []  # Time stamps list for plotting
 
@@ -24,8 +21,7 @@ local_time = datetime.datetime.now()
 def graph_record_data_txt(port_name, baud_rate, name_of_file, data_type):
     port = port_name
     baud = baud_rate
-    arduino = serial.Serial(port,
-                            baud)  # Initialize/open the serial port with the name of the arduino port and the baud rate
+    arduino = serial.Serial(port, baud)  # Initialize/open the serial port with the name of the arduino port and the baud rate
 
     while arduino.isOpen():  # If the port of the device we want is open
 
@@ -67,8 +63,7 @@ def graph_record_data_txt(port_name, baud_rate, name_of_file, data_type):
 def graph_data_csv():  # Incomplete function for CSV writing and creation
     port = "COM13"
     baud = 9600
-    arduino = serial.Serial(port,
-                            baud)  # Initialize/open the serial port with the name of the arduino port and the baud rate
+    arduino = serial.Serial(port, baud)  # Initialize/open the serial port with the name of the arduino port and the baud rate
 
     while arduino.isOpen():  # If the port of the device we want is open
         print(arduino.name + ' is open...')
@@ -90,7 +85,6 @@ def list_txt_files():
 
     for f in files:
         print(f)
-
 
 def graph_read_data_txt(file_to_read):  # Read data from a specially formatted text file
     data_read = open(str(file_to_read) + ".txt",
@@ -145,7 +139,7 @@ if choice == '3':
     # directory = input("Enter name of directory to list files: ")
     # list_txt_files(directory, file_ext)
     list_txt_files()
-
+'''
 if choice == "about":
     words = []
     data_read = open("About_Graph_From_Serial" + ".txt",
@@ -157,5 +151,5 @@ if choice == "about":
         if len(each_line) >= 1:
             print(each_line)
             print("\n")
-
+'''
 
