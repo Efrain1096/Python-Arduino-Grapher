@@ -117,7 +117,7 @@ def graph_read_data_txt(file_to_read):  # Read data from a specially formatted t
     plt.show()
 ##############################################################################################################################
 print('\n')
-print("Welcome to the serial graphing program!!!!!!!!!!!!!!")
+print("Welcome to the serial graphing program!")
 choice = input(
     "Enter 1 to graph from serial\nEnter 2 to graph from a text file\nEnter 3 to list text files\nEnter 'about' to know about this program: ")
 print('\n')
