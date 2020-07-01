@@ -14,6 +14,7 @@ import serial  # importing the serialpy library to communicate through serial
 data_values = []  # list to save the data values for plotting
 time_stamps = []  # Time stamps list for plotting
 
+
 # local_time = time.strftime("%Y-%b-%d_%H:%M:%S", time.localtime())#This saves the date and time to name the text log file created to archive the values
 local_time = datetime.datetime.now()
 
@@ -60,7 +61,7 @@ def graph_record_data_txt(port_name, baud_rate, name_of_file, data_type):
             plt.pause(0.50)  # Pause for 1 second
 
 
-def graph_data_csv():  # Incomplete function for CSV writing and creation
+def graph_data_csv():  # Incomplete function for CSV plotting
     port = "COM13"
     baud = 9600
     arduino = serial.Serial(port, baud)  # Initialize/open the serial port with the name of the arduino port and the baud rate
@@ -74,8 +75,8 @@ def graph_data_csv():  # Incomplete function for CSV writing and creation
             print(2)
 
 
-def list_txt_files():
-    path = "\\Users\\efrai\\Documents\\Personal Projects\\Python Programs\\Python Arduino Grapher"
+def list_txt_files(): # Works on Windows. Linux, not so much....
+    path = os.getcwd() # Gets the absolute path of the current working directory
     files = []
     # r=root, d=directories, f = files
     for r, d, f in os.walk(path):
@@ -119,7 +120,7 @@ def graph_read_data_txt(file_to_read):  # Read data from a specially formatted t
 print('\n')
 print("Welcome to the serial graphing program!")
 choice = input(
-    "Enter 1 to graph from serial\nEnter 2 to graph from a text file\nEnter 3 to list text files(Work in progress, not functional!2)\nEnter 'about' to know about this program: ")
+    "Enter 1 to graph from serial\nEnter 2 to graph from a text file\nEnter 3 to list text files\nEnter 'about' to know about this program: ")
 print('\n')
 
 if choice == '1':
@@ -134,7 +135,7 @@ if choice == '2':
     file_name = input("Enter name of file to graph: ")
     graph_read_data_txt(file_name)
 
-if choice == '3':
+if choice == '3': # Work in progress feature.
     #file_ext = input("Enter file extension(.txt): ")
     # directory = input("Enter name of directory to list files: ")
     # list_txt_files(directory, file_ext)
