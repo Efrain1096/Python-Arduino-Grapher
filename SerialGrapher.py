@@ -51,7 +51,7 @@ def graph_record_data_txt(port_name, baud_rate, name_of_file, data_type):
 
             print('\n')
 
-            plt.xticks(rotation=90)  # Rotate the x axis to minimize overlapping values
+            plt.xticks(rotation=90)  # Rotate the x-axis to minimize overlapping values
             plt.plot(time_stamps, data_values, linestyle='-', marker='o', color='b')
 
             plt.ylabel(str(data_type))  # y-axis
@@ -89,7 +89,7 @@ def list_txt_files(): # Works on Windows. Linux, not so much....
 
 def graph_read_data_txt(file_to_read):  # Read data from a specially formatted text file
     data_read = open(str(file_to_read) + ".txt",
-                     'r').read()  # Append the file extension to end of name to retrive desired file of data values
+                     'r').read()  # Append the file extension to end of name to retrieve desired file of data values
     data_file = data_read.split('\n')
     t_values = []  # Save the read time stamp values
     y_values = []  # Save the read data values
@@ -136,7 +136,7 @@ if choice == '2':
     graph_read_data_txt(file_name)
 
 if choice == '3': # Work in progress feature.
-    #file_ext = input("Enter file extension(.txt): ")
+    # file_ext = input("Enter file extension(.txt): ")
     # directory = input("Enter name of directory to list files: ")
     # list_txt_files(directory, file_ext)
     list_txt_files()
